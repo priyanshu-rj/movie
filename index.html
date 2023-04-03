@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Movie</title>
+</head>
+
+<body style="background-color: bisque;" >
+
+  
+    <div class="container" >
+        <h3 style="text-align: center;" > <p style="margin-top: 60px;" > Search Movie here </p></h3>
+        <div style="margin-top:50px;" style="border:100px;">
+            <div class="input-group" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; border-radius: 4px;" >
+                <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+                    aria-describedby="search-addon" id="tex" />
+                <button type="button" class="btn btn-outline-primary" onclick="fun1()" >search</button>
+                <div class="container">
+                    <div style="margin-top: 80px;" >
+                        <p id="dem"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+    <script>
+        
+function fun1() {
+    const t = document.getElementById('tex').value;
+    const API = `http://www.omdbapi.com/?i=tt3896198&apikey=65593ea7&s=${t}`;
+    get(API);
+    async function get(API) {
+        var y = await fetch(API);
+        var x = JSON.parse(await y.text());
+
+        const t1 = x.Search[0].Title;
+        const y1 = x.Search[0].Year;
+        const t2 = x.Search[1].Title;
+        const y2 = x.Search[1].Year;
+        const t3 = x.Search[2].Title;
+        const y3 = x.Search[2].Year;
+        const t4 = x.Search[3].Title;
+        const y4 = x.Search[3].Year;
+        const t5 = x.Search[4].Title;
+        const y5 = x.Search[4].Year;
+        const t6 = x.Search[5].Title;
+        const y6 = x.Search[5].Year;
+        const t7 = x.Search[6].Title;
+        const y7 = x.Search[6].Year;
+        const t8 = x.Search[7].Title;
+        const y8 = x.Search[7].Year;
+        const t9 = x.Search[8].Title;
+        const y9 = x.Search[8].Year;
+        const l = x.Search[0].Poster;
+        const m = x.Search[1].Poster;
+        const m1 = x.Search[2].Poster;
+        const m2 = x.Search[3].Poster;
+        const m3 = x.Search[4].Poster;
+        const m4 = x.Search[5].Poster;
+        const m5 = x.Search[6].Poster;
+        const m6 = x.Search[7].Poster;
+        const m7 = x.Search[8].Poster;
+
+        document.getElementById('dem').innerHTML = `<div class="container">
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+<div class="col">
+<div class="card shadow-sm">
+<img class="bd-placeholder-img card-img-top" width="100%" height="225" src="${l}" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text></img>
+
+<div class="card-body">
+<p class="card-text">${t1} in year ${y1}</p>
+<div class="d-flex justify-content-between align-items-center">
+  <div class="btn-group">
+
+  </div>
+</div>
+</div>
+</div>
+</div>
+<div class="col">
+<div class="card shadow-sm">
+<img class="bd-placeholder-img card-img-top" width="100%" height="225" src="${m}" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text></img>
+
+<div class="card-body">
+<p class="card-text">${t2} in year ${y2}</p>
+<div class="d-flex justify-content-between align-items-center">
+  <div class="btn-group">
+
+  </div>
+</div>
+</div>
+</div>
+</div>
+<div class="col">
+<div class="card shadow-sm">
+<img class="bd-placeholder-img card-img-top" width="100%" height="225" src="${m1}" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text></img>
+
+<div class="card-body">
+<p class="card-text">${t3} in year ${y3}</p>
+<div class="d-flex justify-content-between align-items-center">
+  <div class="btn-group">
+
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="col">
+<div class="card shadow-sm">
+<img class="bd-placeholder-img card-img-top" width="100%" height="225" src="${m2}" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text></img>
+
+<div class="card-body">
+<p class="card-text">${t4} in year ${y4}</p>
+<div class="d-flex justify-content-between align-items-center">
+  <div class="btn-group">
+
+  </div>
+
+</div>
+</div>
+</div>
+</div>
+<div class="col">
+<div class="card shadow-sm">
+<img class="bd-placeholder-img card-img-top" width="100%" height="225" src="${m3}" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text></img>
+
+<div class="card-body">
+<p class="card-text">${t5} in year ${y5}</p>
+<div class="d-flex justify-content-between align-items-center">
+  <div class="btn-group">
+
+  </div>
+
+</div>
+</div>
+</div>
+</div>
+<div class="col">
+<div class="card shadow-sm">
+<img class="bd-placeholder-img card-img-top" width="100%" height="225" src="${m4}" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text></img>
+
+<div class="card-body">
+<p class="card-text">${t6} in year ${y6}</p>
+<div class="d-flex justify-content-between align-items-center">
+  <div class="btn-group">
+
+  </div>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="col">
+<div class="card shadow-sm">
+<img class="bd-placeholder-img card-img-top" width="100%" height="225" src="${m5}" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text></img>
+
+<div class="card-body">
+<p class="card-text">${t7} in year ${y7}</p>
+<div class="d-flex justify-content-between align-items-center">
+  <div class="btn-group">
+
+  </div>
+
+</div>
+</div>
+</div>
+</div>
+<div class="col">
+<div class="card shadow-sm">
+<img class="bd-placeholder-img card-img-top" width="100%" height="225" src="${m6}" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text></img>
+
+<div class="card-body">
+<p class="card-text">${t8} in year ${y8}</p>
+<div class="d-flex justify-content-between align-items-center">
+  <div class="btn-group">
+  </div>
+</div>
+</div>
+</div>
+</div>
+<div class="col">
+<div class="card shadow-sm">
+<img class="bd-placeholder-img card-img-top" width="100%" height="225" src="${m7}" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text></img>
+
+<div class="card-body">
+<p class="card-text">${t9} in year ${y9}</p>
+<div class="d-flex justify-content-between align-items-center">
+  <div class="btn-group">
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+`
+    }
+}
+    </script>
+</body>
+
+</html>
